@@ -9,4 +9,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="match_date">Match Date</string>
+    <string name="club_a">Club A</string>
+    <string name="_0">0</string>
+    <string name="vs">vs</string>
+    <string name="club_b">Club B</string>
 </resources>
