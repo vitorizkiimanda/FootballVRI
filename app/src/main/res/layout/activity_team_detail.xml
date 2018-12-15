@@ -75,6 +75,7 @@
                     android:layout_marginTop="@dimen/spacing16dp"/>
 
                 <TextView
+                    android:id="@+id/team_description"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet "/>

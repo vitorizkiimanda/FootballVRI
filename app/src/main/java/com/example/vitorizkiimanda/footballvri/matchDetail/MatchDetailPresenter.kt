@@ -37,8 +37,8 @@ class MatchDetailPresenter(private val view: MatchDetailView,
             )
 
             uiThread {
-                view.hideLoading()
                 view.getBadgeAway(data)
+                view.hideLoading()
             }
         }
     }

@@ -21,8 +21,8 @@ class MatchesPresenter(private val view: MatchesView,
             )
 
             uiThread {
-                view.hideLoading()
                 view.showMatchList(data.matches)
+                view.hideLoading()
             }
         }
     }
@@ -36,8 +36,8 @@ class MatchesPresenter(private val view: MatchesView,
             )
 
             uiThread {
-                view.hideLoading()
                 view.showMatchList(data.matches)
+                view.hideLoading()
             }
         }
     }

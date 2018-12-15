@@ -7,9 +7,18 @@ import android.support.v4.content.ContextCompat
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ProgressBar
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import com.dicoding.kotlinacademy.util.invisible
+import com.dicoding.kotlinacademy.util.visible
+import com.example.vitorizkiimanda.footballvri.Model.fromExample.Team
 import com.example.vitorizkiimanda.footballvri.R
+import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch
 import com.example.vitorizkiimanda.footballvri.database.database
+import com.example.vitorizkiimanda.footballvri.matchDetail.MatchDetailPresenter
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_match_detail.*
 import kotlinx.android.synthetic.main.activity_team_detail.*
 import org.jetbrains.anko.db.classParser
@@ -19,20 +28,39 @@ import org.jetbrains.anko.db.select
 import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.toast
 
-class TeamDetailActivity : AppCompatActivity() {
+class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
     private var isFavorite: Boolean = false
     private lateinit var origin:String
     private var menuItem: Menu? = null
+    private lateinit var id: String
+    private lateinit var presenter: TeamDetailPresenter
+    private lateinit var progressBar: ProgressBar
+    private lateinit var teamData: Team
+//    private lateinit var teamDataFavourite: FavouriteMatch
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_team_detail)
 
+        //binding
+        progressBar = findViewById(R.id.progress_bar)
 
+        id = intent.getStringExtra("id")
         origin= intent.getStringExtra("origin")
 
+        if(origin == "favourite"){
+            toast("coming soon")
+        }
+        else {
+            val request = ApiRepository()
+            val gson = Gson()
+            presenter = TeamDetailPresenter(this, request, gson)
+            presenter.getTeamDetail(id)
+        }
+
         //Toolbar
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Team Detail"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -172,5 +200,39 @@ class TeamDetailActivity : AppCompatActivity() {
 //            toast(e.localizedMessage)
 //        }
         team_image.snackbar(R.string.toast_fav_remove).show()
+    }
+
+    private fun setImage(data: String) {
+        if (isFavorite) {
+            showLoading()
+            Glide.with(applicationContext)
+                    .load(data)
+                    .apply(RequestOptions().placeholder(R.mipmap.ic_launcher))
+                    .into(team_image)
+            hideLoading()
+        }
+        else {
+            Glide.with(applicationContext)
+                    .load(data)
+                    .apply(RequestOptions().placeholder(R.mipmap.ic_launcher))
+                    .into(team_image)
+        }
+    }
+
+    override fun showLoading() {
+        progressBar.visible()
+    }
+
+    override fun hideLoading() {
+        progressBar.invisible()
+    }
+
+    override fun showTeamDetail(data: List<Team>) {
+        setImage(data[0].teamBadge!!)
+
+        team_name.text = data[0].teamName
+        team_year.text = data[0].teamFormedYear
+        team_stadium.text = data[0].teamStadium
+        team_description.text = data[0].teamDescription
     }
 }
