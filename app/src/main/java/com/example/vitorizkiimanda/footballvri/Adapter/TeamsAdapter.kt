@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballvri.teams
+package com.example.vitorizkiimanda.footballvri.Adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

@@ -1,5 +1,7 @@
 package com.example.vitorizkiimanda.footballvri.teamDetail
 
+import android.util.Log
+import com.example.vitorizkiimanda.footballvri.Model.PlayerResponse
 import com.example.vitorizkiimanda.footballvri.Model.fromExample.TeamResponse
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.api.TheSportDBApi
@@ -21,6 +23,21 @@ class TeamDetailPresenter(private val view: TeamDetailView,
 
             uiThread {
                 view.showTeamDetail(data.teams)
+                view.hideLoading()
+            }
+        }
+    }
+
+    fun getTeamPlayers(teamId: String) {
+        view.showLoading()
+        doAsync{
+            val data = gson.fromJson(apiRepository
+                    .doRequest(TheSportDBApi.getTeamPlayers(teamId)),
+                    PlayerResponse::class.java
+            )
+
+            uiThread {
+                view.showTeamPlayers(data.players)
                 view.hideLoading()
             }
         }

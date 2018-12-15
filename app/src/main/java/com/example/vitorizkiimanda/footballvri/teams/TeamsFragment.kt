@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import android.widget.*
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
-import com.example.vitorizkiimanda.footballvri.Model.Team
+import com.example.vitorizkiimanda.footballvri.Adapter.TeamsAdapter
 
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.R.array.league
@@ -52,7 +52,7 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
         spinner.adapter = spinnerAdapter
 
         adapter = TeamsAdapter(teams) {
-            context?.startActivity<TeamDetailActivity>("id" to "${it.teamId}","origin" to "notFavourites")
+            context?.startActivity<TeamDetailActivity>("id" to "${it.teamId}", "origin" to "notFavourites")
         }
         listTeam.adapter = adapter
 

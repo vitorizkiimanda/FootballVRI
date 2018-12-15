@@ -4,6 +4,8 @@ import android.database.sqlite.SQLiteConstraintException
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -12,6 +14,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
+import com.example.vitorizkiimanda.footballvri.Adapter.PlayersAdapter
+import com.example.vitorizkiimanda.footballvri.Model.Player
 import com.example.vitorizkiimanda.footballvri.Model.fromExample.Team
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
@@ -29,12 +33,15 @@ import org.jetbrains.anko.design.snackbar
 import org.jetbrains.anko.toast
 
 class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
+    private var players: MutableList<Player> = mutableListOf()
+    private lateinit var listPlayers: RecyclerView
     private var isFavorite: Boolean = false
     private lateinit var origin:String
     private var menuItem: Menu? = null
     private lateinit var id: String
     private lateinit var presenter: TeamDetailPresenter
     private lateinit var progressBar: ProgressBar
+    private lateinit var adapter: PlayersAdapter
     private lateinit var teamData: Team
 //    private lateinit var teamDataFavourite: FavouriteMatch
 
@@ -45,6 +52,13 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
 
         //binding
         progressBar = findViewById(R.id.progress_bar)
+        listPlayers = findViewById(R.id.rvTeamPlayers)
+
+        adapter = PlayersAdapter(players)
+        listPlayers.adapter = adapter
+
+        //layout manager
+        listPlayers.layoutManager = LinearLayoutManager(this)
 
         id = intent.getStringExtra("id")
         origin= intent.getStringExtra("origin")
@@ -57,6 +71,9 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
             val gson = Gson()
             presenter = TeamDetailPresenter(this, request, gson)
             presenter.getTeamDetail(id)
+
+            //get players
+            presenter.getTeamPlayers(id)
         }
 
         //Toolbar
@@ -235,4 +252,10 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
         team_stadium.text = data[0].teamStadium
         team_description.text = data[0].teamDescription
     }
+    override fun showTeamPlayers(data: List<Player>) {
+        players.clear()
+        players.addAll(data)
+        adapter.notifyDataSetChanged()
+    }
+
 }

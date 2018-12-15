@@ -89,10 +89,11 @@
                     android:textColor="@color/colorPrimary"
                     android:layout_marginTop="@dimen/spacing16dp"/>
 
-                <include  layout="@layout/item_player" android:id="@+id/id" />
-                <include  layout="@layout/item_player" android:id="@+id/id" />
-
-
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvTeamPlayers"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                </android.support.v7.widget.RecyclerView>
             </LinearLayout>
     </ScrollView>
 
