@@ -1,2 +1,2 @@
-package com.example.vitorizkiimanda.footballschedulevri.Adapter
+package com.example.vitorizkiimanda.footballvri.Adapter
 

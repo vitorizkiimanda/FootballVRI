@@ -1,6 +1,6 @@
 package com.example.vitorizkiimanda.footballvri.matchDetail
 
-import com.example.vitorizkiimanda.footballschedulevri.Api.Model.TeamResponse
+import com.example.vitorizkiimanda.footballvri.Model.TeamResponse
 
 interface MatchDetailView {
     fun showLoading()

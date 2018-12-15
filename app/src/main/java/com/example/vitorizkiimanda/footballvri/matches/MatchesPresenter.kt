@@ -1,15 +1,15 @@
 package com.example.vitorizkiimanda.footballvri.matches
 
-import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
-import com.example.vitorizkiimanda.footballschedulevri.Api.Model.MatchResponse
-import com.example.vitorizkiimanda.footballschedulevri.Api.TheSportDBApi
+import com.example.vitorizkiimanda.footballvri.api.ApiRepository
+import com.example.vitorizkiimanda.footballvri.Model.MatchResponse
+import com.example.vitorizkiimanda.footballvri.api.TheSportDBApi
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 
 class MatchesPresenter(private val view: MatchesView,
-                    private val apiRepository: ApiRepository,
-                    private val gson: Gson) {
+                       private val apiRepository: ApiRepository,
+                       private val gson: Gson) {
 
 
     fun getLastMatches(idLeage: String?) {

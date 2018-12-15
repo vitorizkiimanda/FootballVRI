@@ -1,11 +1,11 @@
-package com.example.vitorizkiimanda.footballschedulevri.Adapter
+package com.example.vitorizkiimanda.footballvri.Adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dicoding.kotlinacademy.util.formatDate
-import com.example.vitorizkiimanda.footballschedulevri.database.FavouriteMatch
+import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.matchDetail.MatchDetailActivity
 import kotlinx.android.synthetic.main.item_match.view.*

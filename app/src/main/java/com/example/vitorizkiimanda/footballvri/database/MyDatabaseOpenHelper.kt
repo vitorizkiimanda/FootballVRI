@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballschedulevri.database
+package com.example.vitorizkiimanda.footballvri.database
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

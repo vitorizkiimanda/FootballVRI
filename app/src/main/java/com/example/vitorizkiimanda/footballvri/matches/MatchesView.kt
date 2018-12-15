@@ -1,6 +1,6 @@
 package com.example.vitorizkiimanda.footballvri.matches
 
-import com.example.vitorizkiimanda.footballschedulevri.Api.Model.Match
+import com.example.vitorizkiimanda.footballvri.Model.Match
 
 interface MatchesView {
     fun showLoading()

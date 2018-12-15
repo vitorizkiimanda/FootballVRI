@@ -12,10 +12,10 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
-import com.example.vitorizkiimanda.footballschedulevri.Adapter.FavouriteMatchesAdapter
-import com.example.vitorizkiimanda.footballschedulevri.Api.Model.Match
-import com.example.vitorizkiimanda.footballschedulevri.database.FavouriteMatch
-import com.example.vitorizkiimanda.footballschedulevri.database.database
+import com.example.vitorizkiimanda.footballvri.Adapter.FavouriteMatchesAdapter
+import com.example.vitorizkiimanda.footballvri.Model.Match
+import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch
+import com.example.vitorizkiimanda.footballvri.database.database
 
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.matches.MatchesView

@@ -12,9 +12,9 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
-import com.example.vitorizkiimanda.footballschedulevri.Adapter.MatchAdapter
-import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
-import com.example.vitorizkiimanda.footballschedulevri.Api.Model.Match
+import com.example.vitorizkiimanda.footballvri.Adapter.MatchAdapter
+import com.example.vitorizkiimanda.footballvri.api.ApiRepository
+import com.example.vitorizkiimanda.footballvri.Model.Match
 
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.matches.MatchesPresenter

@@ -13,11 +13,11 @@ import com.bumptech.glide.request.RequestOptions
 import com.dicoding.kotlinacademy.util.formatDate
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
-import com.example.vitorizkiimanda.footballschedulevri.Api.ApiRepository
-import com.example.vitorizkiimanda.footballschedulevri.Api.Model.Match
-import com.example.vitorizkiimanda.footballschedulevri.Api.Model.TeamResponse
-import com.example.vitorizkiimanda.footballschedulevri.database.FavouriteMatch
-import com.example.vitorizkiimanda.footballschedulevri.database.database
+import com.example.vitorizkiimanda.footballvri.api.ApiRepository
+import com.example.vitorizkiimanda.footballvri.Model.Match
+import com.example.vitorizkiimanda.footballvri.Model.TeamResponse
+import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch
+import com.example.vitorizkiimanda.footballvri.database.database
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.R.drawable.ic_add_to_favorites
 import com.example.vitorizkiimanda.footballvri.R.drawable.ic_added_to_favorites

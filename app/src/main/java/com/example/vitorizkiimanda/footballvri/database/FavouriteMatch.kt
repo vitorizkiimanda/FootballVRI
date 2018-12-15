@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballschedulevri.database
+package com.example.vitorizkiimanda.footballvri.database
 
 data class FavouriteMatch(
         val id: Int?,

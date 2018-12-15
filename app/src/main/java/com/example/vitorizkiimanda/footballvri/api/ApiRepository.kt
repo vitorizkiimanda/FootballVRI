@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballschedulevri.Api
+package com.example.vitorizkiimanda.footballvri.api
 
 import java.net.URL
 
