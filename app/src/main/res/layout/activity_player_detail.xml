@@ -5,5 +5,73 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".playerDetail.PlayerDetailActivity">
+    <ImageView
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/player_thumb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_foreground"
+        android:scaleType="fitXY"
+        android:contentDescription="Player Thumbnails" />
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/player_thumb"
+        android:id="@+id/player_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/spacing16dp">
+        <LinearLayout
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight(Kg)"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="36sp"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="center"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Weight(Kg)"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="36sp"
+                android:textColor="@color/colorPrimary"
+                android:textAlignment="center"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/player_content"
+        android:id="@+id/player_posisiton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Position"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_big"
+        android:layout_marginTop="@dimen/spacing8dp"/>
+    <TextView
+        app:layout_constraintTop_toBottomOf="@id/player_posisiton"
+        android:id="@+id/player_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Player Description"
+        android:layout_margin="@dimen/spacing16dp"/>
 
 </android.support.constraint.ConstraintLayout>
