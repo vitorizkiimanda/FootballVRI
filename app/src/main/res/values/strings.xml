@@ -14,4 +14,8 @@
     <string name="_0">0</string>
     <string name="vs">vs</string>
     <string name="club_b">Club B</string>
+
+    <string name="favorites">Favourites</string>
+    <string name="toast_fav_add">Added to favourite</string>
+    <string name="toast_fav_remove">Removed from favourite</string>
 </resources>
