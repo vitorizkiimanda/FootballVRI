@@ -19,12 +19,9 @@ import com.example.vitorizkiimanda.footballvri.Model.Player
 import com.example.vitorizkiimanda.footballvri.Model.fromExample.Team
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
-import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch
 import com.example.vitorizkiimanda.footballvri.database.FavouriteTeam
 import com.example.vitorizkiimanda.footballvri.database.database
-import com.example.vitorizkiimanda.footballvri.matchDetail.MatchDetailPresenter
 import com.google.gson.Gson
-import kotlinx.android.synthetic.main.activity_match_detail.*
 import kotlinx.android.synthetic.main.activity_team_detail.*
 import org.jetbrains.anko.db.classParser
 import org.jetbrains.anko.db.delete
@@ -113,10 +110,10 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
         else {
             database.use {
                 Log.d("checkDB", "id :" + id)
-                val result = select(FavouriteMatch.TABLE_FAVORITE_MATCH)
-                        .whereArgs("(EVENT_ID = {id})",
+                val result = select(FavouriteTeam.TABLE_FAVORITE_TEAM)
+                        .whereArgs("(TEAM_ID = {id})",
                                 "id" to id)
-                val favorite = result.parseList(classParser<FavouriteMatch>())
+                val favorite = result.parseList(classParser<FavouriteTeam>())
                 if (!favorite.isEmpty()) isFavorite = true
             }
         }
