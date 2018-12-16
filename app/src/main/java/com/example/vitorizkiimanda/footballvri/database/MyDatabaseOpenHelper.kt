@@ -4,7 +4,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import org.jetbrains.anko.db.*
 
-class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "FavoriteTeam.db", null, 1) {
+class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorites.db", null, 1) {
     companion object {
         private var instance: MyDatabaseOpenHelper? = null
 
@@ -43,11 +43,18 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "Favorit
                 FavouriteMatch.AWAY_MIDFIELD to TEXT,
                 FavouriteMatch.AWAY_FORWARD to TEXT,
                 FavouriteMatch.AWAY_SUBS to TEXT)
+
+        db.createTable(FavouriteTeam.TABLE_FAVORITE_TEAM, true,
+                FavouriteTeam.ID to INTEGER + PRIMARY_KEY + AUTOINCREMENT,
+                FavouriteTeam.TEAM_ID to TEXT + UNIQUE,
+                FavouriteTeam.TEAM_NAME to TEXT,
+                FavouriteTeam.TEAM_BADGE to TEXT)
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         // Here you can upgrade tables, as usual
         db.dropTable(FavouriteMatch.TABLE_FAVORITE_MATCH, true)
+        db.dropTable(FavouriteTeam.TABLE_FAVORITE_TEAM, true)
     }
 }
 

@@ -20,6 +20,7 @@ import com.example.vitorizkiimanda.footballvri.Model.fromExample.Team
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch
+import com.example.vitorizkiimanda.footballvri.database.FavouriteTeam
 import com.example.vitorizkiimanda.footballvri.database.database
 import com.example.vitorizkiimanda.footballvri.matchDetail.MatchDetailPresenter
 import com.google.gson.Gson
@@ -63,18 +64,15 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
         id = intent.getStringExtra("id")
         origin= intent.getStringExtra("origin")
 
-        if(origin == "favourite"){
-            toast("coming soon")
-        }
-        else {
-            val request = ApiRepository()
-            val gson = Gson()
-            presenter = TeamDetailPresenter(this, request, gson)
-            presenter.getTeamDetail(id)
+        //get team detail data from API
+        val request = ApiRepository()
+        val gson = Gson()
+        presenter = TeamDetailPresenter(this, request, gson)
+        presenter.getTeamDetail(id)
 
-            //get players
-            presenter.getTeamPlayers(id)
-        }
+        //get players
+        presenter.getTeamPlayers(id)
+
 
         //Toolbar
         supportActionBar?.title = "Team Detail"
@@ -113,14 +111,14 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
             isFavorite = true
         }
         else {
-//            database.use {
-//                Log.d("checkDB", "id :" + matchData.idEvent)
-//                val result = select(FavouriteMatch.TABLE_FAVORITE_MATCH)
-//                        .whereArgs("(EVENT_ID = {id})",
-//                                "id" to matchData.idEvent)
-//                val favorite = result.parseList(classParser<FavouriteMatch>())
-//                if (!favorite.isEmpty()) isFavorite = true
-//            }
+            database.use {
+                Log.d("checkDB", "id :" + id)
+                val result = select(FavouriteMatch.TABLE_FAVORITE_MATCH)
+                        .whereArgs("(EVENT_ID = {id})",
+                                "id" to id)
+                val favorite = result.parseList(classParser<FavouriteMatch>())
+                if (!favorite.isEmpty()) isFavorite = true
+            }
         }
         setFavorite()
     }
@@ -133,90 +131,33 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
     }
 
     private fun addToFavorite(){
-//        try {
-//
-//            if(origin == "favourite"){
-//                database.use {
-//                    insert(FavouriteMatch.TABLE_FAVORITE_MATCH,
-//                            FavouriteMatch.EVENT_ID to matchDataFavourite.eventId,
-//                            FavouriteMatch.EVENT_DATE to matchDataFavourite.eventDate,
-//                            FavouriteMatch.HOME_ID to matchDataFavourite.homeId,
-//                            FavouriteMatch.HOME_NAME to matchDataFavourite.homeName,
-//                            FavouriteMatch.HOME_SCORE to matchDataFavourite.homeScore,
-//                            FavouriteMatch.HOME_GOALS to matchDataFavourite.homeGoals,
-//                            FavouriteMatch.HOME_SHOTS to matchDataFavourite.homeShots,
-//                            FavouriteMatch.HOME_KEEPER to matchDataFavourite.homeKeeper,
-//                            FavouriteMatch.HOME_DEFENSE to matchDataFavourite.homeDefense,
-//                            FavouriteMatch.HOME_MIDFIELD to matchDataFavourite.homeMidfield,
-//                            FavouriteMatch.HOME_FORWARD to matchDataFavourite.homeForward,
-//                            FavouriteMatch.HOME_SUBS to matchDataFavourite.homeSubs,
-//                            FavouriteMatch.AWAY_ID to matchDataFavourite.awayId,
-//                            FavouriteMatch.AWAY_NAME to matchDataFavourite.awayName,
-//                            FavouriteMatch.AWAY_SCORE to matchDataFavourite.awayScore,
-//                            FavouriteMatch.AWAY_GOALS to matchDataFavourite.awayGoals,
-//                            FavouriteMatch.AWAY_SHOTS to matchDataFavourite.awayShots,
-//                            FavouriteMatch.AWAY_KEEPER to matchDataFavourite.awayKeeper,
-//                            FavouriteMatch.AWAY_DEFENSE to matchDataFavourite.awayDefense,
-//                            FavouriteMatch.AWAY_MIDFIELD to matchDataFavourite.awayMidfield,
-//                            FavouriteMatch.AWAY_FORWARD to matchDataFavourite.awayForward,
-//                            FavouriteMatch.AWAY_SUBS to matchDataFavourite.awaySubs)
-//                }
-//            }
-//            else{
-//                database.use {
-//                    insert(FavouriteMatch.TABLE_FAVORITE_MATCH,
-//                            FavouriteMatch.EVENT_ID to matchData.idEvent,
-//                            FavouriteMatch.EVENT_DATE to matchData.dateEvent,
-//                            FavouriteMatch.HOME_ID to matchData.idHomeTeam,
-//                            FavouriteMatch.HOME_NAME to matchData.strHomeTeam,
-//                            FavouriteMatch.HOME_SCORE to matchData.intHomeScore,
-//                            FavouriteMatch.HOME_GOALS to matchData.strHomeGoalDetails,
-//                            FavouriteMatch.HOME_SHOTS to matchData.intHomeShots,
-//                            FavouriteMatch.HOME_KEEPER to matchData.strHomeLineupGoalkeeper,
-//                            FavouriteMatch.HOME_DEFENSE to matchData.strHomeLineupDefense,
-//                            FavouriteMatch.HOME_MIDFIELD to matchData.strHomeLineupMidfield,
-//                            FavouriteMatch.HOME_FORWARD to matchData.strHomeLineupForward,
-//                            FavouriteMatch.HOME_SUBS to matchData.strHomeLineupSubstitutes,
-//                            FavouriteMatch.AWAY_ID to matchData.idAwayTeam,
-//                            FavouriteMatch.AWAY_NAME to matchData.strAwayTeam,
-//                            FavouriteMatch.AWAY_SCORE to matchData.intAwayScore,
-//                            FavouriteMatch.AWAY_GOALS to matchData.strAwayGoalDetails,
-//                            FavouriteMatch.AWAY_SHOTS to matchData.intAwayShots,
-//                            FavouriteMatch.AWAY_KEEPER to matchData.strAwayLineupGoalkeeper,
-//                            FavouriteMatch.AWAY_DEFENSE to matchData.strAwayLineupDefense,
-//                            FavouriteMatch.AWAY_MIDFIELD to matchData.strAwayLineupMidfield,
-//                            FavouriteMatch.AWAY_FORWARD to matchData.strAwayLineupForward,
-//                            FavouriteMatch.AWAY_SUBS to matchData.strAwayLineupSubstitutes)
-//                }
-//            }
-//            match_date.snackbar(R.string.toast_fav_add).show()
-//        } catch (e: SQLiteConstraintException){
-//            toast(e.localizedMessage)
-//        }
-        team_image.snackbar(R.string.toast_fav_add).show()
+        try {
+
+            database.use {
+                insert(FavouriteTeam.TABLE_FAVORITE_TEAM,
+                        FavouriteTeam.TEAM_ID to teamData.teamId,
+                        FavouriteTeam.TEAM_NAME to teamData.teamName,
+                        FavouriteTeam.TEAM_BADGE to teamData.teamBadge)
+            }
+
+            team_image.snackbar(R.string.toast_fav_add).show()
+        } catch (e: SQLiteConstraintException){
+            toast(e.localizedMessage)
+        }
     }
 
     private fun removeFromFavorite(){
-//        try {
-//            if(origin == "favourite"){
-//                database.use {
-//                    database.use {
-//                        delete(FavouriteMatch.TABLE_FAVORITE_MATCH, "(EVENT_ID = {id})",
-//                                "id" to eventId)
-//                    }
-//                }
-//            }
-//            else {
-//                database.use {
-//                    delete(FavouriteMatch.TABLE_FAVORITE_MATCH, "(EVENT_ID = {id})",
-//                            "id" to matchData.idEvent)
-//                }
-//            }
-//            team_image.snackbar(R.string.toast_fav_remove).show()
-//        } catch (e: SQLiteConstraintException){
-//            toast(e.localizedMessage)
-//        }
-        team_image.snackbar(R.string.toast_fav_remove).show()
+        try {
+            database.use {
+                database.use {
+                    delete(FavouriteTeam.TABLE_FAVORITE_TEAM, "(TEAM_ID = {id})",
+                            "id" to id)
+                }
+            }
+            team_image.snackbar(R.string.toast_fav_remove).show()
+        } catch (e: SQLiteConstraintException){
+            team_image.snackbar(e.localizedMessage).show()
+        }
     }
 
     private fun setImage(data: String) {
@@ -245,6 +186,9 @@ class TeamDetailActivity : AppCompatActivity(), TeamDetailView {
     }
 
     override fun showTeamDetail(data: List<Team>) {
+        //for SQLite
+        teamData = data[0]
+
         setImage(data[0].teamBadge!!)
 
         team_name.text = data[0].teamName
