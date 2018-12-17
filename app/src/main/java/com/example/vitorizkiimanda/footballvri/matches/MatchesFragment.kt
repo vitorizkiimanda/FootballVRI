@@ -2,18 +2,15 @@ package com.example.vitorizkiimanda.footballvri.matches
 
 
 import android.os.Bundle
-import android.support.design.R.id.search_button
 import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.*
 
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.searchMatch.SearchMatchActivity
-import kotlinx.android.synthetic.main.fragment_matches.*
-import org.jetbrains.anko.support.v4.intentFor
+import org.jetbrains.anko.startActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,30 +46,13 @@ class MatchesFragment : Fragment() {
         return view
     }
 
-//    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-//        inflater!!.inflate(R.menu.search_menu_button, menu)
-//        menuItem = menu
-//    }
-//
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        return when (item.itemId) {
-//            search_button -> {
-//                startActivity(intentFor<SearchMatchActivity>())
-//                true
-//            }
-//
-//            else -> super.onOptionsItemSelected(item)
-//        }
-//    }
-
-
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater!!.inflate(R.menu.search_menu, menu)
         val searchView = menu?.findItem(R.id.mnSearch)?.actionView as SearchView?
         searchView?.queryHint = "Search Match"
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                searchMatch(query.toString())
+                activity?.startActivity<SearchMatchActivity>("query" to query)
                 return true
             }
             override fun onQueryTextChange(query: String?): Boolean = false
@@ -80,8 +60,5 @@ class MatchesFragment : Fragment() {
         super.onCreateOptionsMenu(  menu, inflater)
     }
 
-    fun searchMatch(data: String){
-        startActivity(intentFor<SearchMatchActivity>("query" to data))
-    }
 }
 
