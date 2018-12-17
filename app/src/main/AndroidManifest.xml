@@ -23,7 +23,8 @@
         <activity android:name=".matchDetail.MatchDetailActivity" />
         <activity android:name=".teamDetail.TeamDetailActivity" />
         <activity android:name=".playerDetail.PlayerDetailActivity" />
-        <activity android:name=".searchMatch.SearchMatchActivity"></activity>
+        <activity android:name=".searchMatch.SearchMatchActivity" />
+        <activity android:name=".searchTeam.SearchTeamActivity"></activity>
     </application>
 
 </manifest>

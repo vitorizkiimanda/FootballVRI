@@ -7,9 +7,8 @@ import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.support.v7.widget.SearchView
+import android.view.*
 import android.widget.*
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
@@ -18,6 +17,7 @@ import com.example.vitorizkiimanda.footballvri.Adapter.TeamsAdapter
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.R.array.league
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
+import com.example.vitorizkiimanda.footballvri.searchMatch.SearchMatchActivity
 import com.example.vitorizkiimanda.footballvri.teamDetail.TeamDetailActivity
 import com.google.gson.Gson
 import org.jetbrains.anko.*
@@ -71,6 +71,9 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
         swipeRefresh.onRefresh {
             presenter.getTeamList(leagueName)
         }
+
+        //show menu
+        setHasOptionsMenu(true)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -125,6 +128,27 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
         teams.clear()
         teams.addAll(data)
         adapter.notifyDataSetChanged()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        inflater!!.inflate(R.menu.search_menu, menu)
+        val searchView = menu?.findItem(R.id.mnSearch)?.actionView as SearchView?
+        searchView?.queryHint = "Search Team"
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                spinner.visibility = View.GONE
+//                activity!!.startActivity<SearchMatchActivity>("query" to query)
+                return true
+            }
+            override fun onQueryTextChange(query: String?): Boolean = false
+        })
+        searchView?.setOnCloseListener(object : SearchView.OnCloseListener{
+            override fun onClose(): Boolean {
+                spinner.visibility = View.VISIBLE
+                return true
+            }
+        })
+        super.onCreateOptionsMenu(  menu, inflater)
     }
 
 }

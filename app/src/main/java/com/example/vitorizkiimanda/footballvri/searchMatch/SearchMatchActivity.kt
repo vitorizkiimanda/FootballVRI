@@ -64,7 +64,7 @@ class SearchMatchActivity : AppCompatActivity(), MatchesView {
 
 
         //Toolbar
-        supportActionBar?.title = ""
+        supportActionBar?.title = "Search Match"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
@@ -89,6 +89,20 @@ class SearchMatchActivity : AppCompatActivity(), MatchesView {
         matches.clear()
         matches.addAll(data)
         adapter.notifyDataSetChanged()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?) : Boolean {
+        menuInflater.inflate(R.menu.search_menu, menu)
+        val searchView = menu?.findItem(R.id.mnSearch)?.actionView as SearchView?
+        searchView?.queryHint = "Search Match"
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                getData(query.toString())
+                return true
+            }
+            override fun onQueryTextChange(query: String?): Boolean = false
+        })
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

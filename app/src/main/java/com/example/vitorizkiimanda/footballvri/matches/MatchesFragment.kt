@@ -6,11 +6,13 @@ import android.support.design.widget.TabLayout
 import android.support.v4.app.Fragment
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.SearchView
+import android.util.Log
 import android.view.*
 
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.searchMatch.SearchMatchActivity
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.support.v4.toast
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -52,7 +54,8 @@ class MatchesFragment : Fragment() {
         searchView?.queryHint = "Search Match"
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                activity?.startActivity<SearchMatchActivity>("query" to query)
+                searchView.clearFocus()
+                activity!!.startActivity<SearchMatchActivity>("query" to query)
                 return true
             }
             override fun onQueryTextChange(query: String?): Boolean = false
