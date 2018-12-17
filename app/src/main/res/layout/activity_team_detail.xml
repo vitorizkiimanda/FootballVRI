@@ -81,6 +81,7 @@
                     android:text="lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet lorem ipsum dolor sir amet "/>
 
                 <TextView
+                    android:id="@+id/player_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Players"

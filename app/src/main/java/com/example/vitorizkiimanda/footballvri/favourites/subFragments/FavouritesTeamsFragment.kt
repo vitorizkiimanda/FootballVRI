@@ -86,6 +86,7 @@ class FavouritesTeamsFragment : Fragment(), AnkoComponent<Context> {
                         android.R.color.holo_red_light)
 
                 listTeam = recyclerView {
+                    id = R.id.list_team
                     lparams (width = matchParent, height = wrapContent)
                     layoutManager = LinearLayoutManager(ctx)
                 }
