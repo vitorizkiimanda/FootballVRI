@@ -8,6 +8,7 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
+import android.util.Log
 import android.view.*
 import android.widget.*
 import com.dicoding.kotlinacademy.util.invisible
@@ -17,10 +18,12 @@ import com.example.vitorizkiimanda.footballvri.Adapter.TeamsAdapter
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.R.array.league
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
+import com.example.vitorizkiimanda.footballvri.api.TheSportDBApi.getTeamByName
 import com.example.vitorizkiimanda.footballvri.searchMatch.SearchMatchActivity
 import com.example.vitorizkiimanda.footballvri.teamDetail.TeamDetailActivity
 import com.google.gson.Gson
 import org.jetbrains.anko.*
+import org.jetbrains.anko.appcompat.v7.coroutines.onClose
 import org.jetbrains.anko.recyclerview.v7.recyclerView
 import org.jetbrains.anko.support.v4.onRefresh
 import org.jetbrains.anko.support.v4.swipeRefreshLayout
@@ -69,6 +72,7 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
         }
 
         swipeRefresh.onRefresh {
+            spinner.visibility = View.VISIBLE
             presenter.getTeamList(leagueName)
         }
 
@@ -130,14 +134,24 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
         adapter.notifyDataSetChanged()
     }
 
+    fun searchTeam(data: String){
+        val request = ApiRepository()
+        val gson = Gson()
+        presenter = TeamsPresenter(this, request, gson)
+        presenter.getTeamByName(data)
+
+    }
+
+
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater!!.inflate(R.menu.search_menu, menu)
         val searchView = menu?.findItem(R.id.mnSearch)?.actionView as SearchView?
         searchView?.queryHint = "Search Team"
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                spinner.visibility = View.GONE
-//                activity!!.startActivity<SearchMatchActivity>("query" to query)
+                searchView.clearFocus()
+//                spinner.visibility = View.GONE
+                searchTeam(query.toString())
                 return true
             }
             override fun onQueryTextChange(query: String?): Boolean = false

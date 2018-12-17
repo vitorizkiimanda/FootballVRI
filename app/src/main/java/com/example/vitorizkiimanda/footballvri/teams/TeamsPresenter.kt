@@ -25,4 +25,19 @@ class TeamsPresenter(private val view: TeamsView,
             }
         }
     }
+
+    fun getTeamByName(team: String?) {
+        view.showLoading()
+        doAsync {
+            val data = gson.fromJson(apiRepository
+                    .doRequest(TheSportDBApi.getTeamByName(team)),
+                    TeamResponse::class.java
+            )
+
+            uiThread {
+                view.hideLoading()
+                view.showTeamList(data.teams)
+            }
+        }
+    }
 }
