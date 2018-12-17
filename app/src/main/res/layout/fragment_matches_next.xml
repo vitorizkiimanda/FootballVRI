@@ -16,10 +16,6 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingBottom="@dimen/spacing16dp"
-            android:paddingLeft="@dimen/spacing16dp"
-            android:paddingRight="@dimen/spacing16dp"
-            android:paddingTop="@dimen/spacing16dp"
             android:orientation="vertical"
             tools:context=".main.fragments.LastMatchFragment">
 
@@ -32,7 +28,15 @@
                 style="@style/Widget.AppCompat.ProgressBar"
                 />
 
+            <Spinner
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/spinnerLeagues"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing8dp"/>
+
             <android.support.v7.widget.RecyclerView
+                app:layout_constraintTop_toBottomOf="@id/spinnerLeagues"
                 android:id="@+id/rvMatchesNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
