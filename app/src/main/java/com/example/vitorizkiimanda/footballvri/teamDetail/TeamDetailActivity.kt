@@ -12,8 +12,8 @@ import android.view.MenuItem
 import android.widget.ProgressBar
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.dicoding.kotlinacademy.util.invisible
-import com.dicoding.kotlinacademy.util.visible
+import com.example.vitorizkiimanda.footballvri.util.invisible
+import com.example.vitorizkiimanda.footballvri.util.visible
 import com.example.vitorizkiimanda.footballvri.Adapter.PlayersAdapter
 import com.example.vitorizkiimanda.footballvri.Model.Player
 import com.example.vitorizkiimanda.footballvri.Model.fromExample.Team

@@ -10,8 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
-import com.dicoding.kotlinacademy.util.invisible
-import com.dicoding.kotlinacademy.util.visible
+import com.example.vitorizkiimanda.footballvri.util.invisible
+import com.example.vitorizkiimanda.footballvri.util.visible
 import com.example.vitorizkiimanda.footballvri.Adapter.FavouriteMatchesAdapter
 import com.example.vitorizkiimanda.footballvri.Model.Match
 import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch

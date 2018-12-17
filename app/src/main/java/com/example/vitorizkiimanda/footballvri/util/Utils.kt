@@ -1,4 +1,4 @@
-package com.dicoding.kotlinacademy.util
+package com.example.vitorizkiimanda.footballvri.util
 
 import android.annotation.SuppressLint
 import android.view.View

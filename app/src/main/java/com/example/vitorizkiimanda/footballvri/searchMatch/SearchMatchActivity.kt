@@ -6,17 +6,11 @@ import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.SearchView
-import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.ProgressBar
-import android.widget.Spinner
-import com.dicoding.kotlinacademy.util.invisible
-import com.dicoding.kotlinacademy.util.visible
+import com.example.vitorizkiimanda.footballvri.util.invisible
+import com.example.vitorizkiimanda.footballvri.util.visible
 import com.example.vitorizkiimanda.footballvri.Adapter.MatchAdapter
 import com.example.vitorizkiimanda.footballvri.Model.Match
 import com.example.vitorizkiimanda.footballvri.R
@@ -24,9 +18,7 @@ import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.matches.MatchesPresenter
 import com.example.vitorizkiimanda.footballvri.matches.MatchesView
 import com.google.gson.Gson
-import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.support.v4.onRefresh
-import org.jetbrains.anko.toast
 
 class SearchMatchActivity : AppCompatActivity(), MatchesView {
 

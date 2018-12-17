@@ -13,14 +13,13 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ProgressBar
 import android.widget.Spinner
-import com.dicoding.kotlinacademy.util.invisible
-import com.dicoding.kotlinacademy.util.visible
+import com.example.vitorizkiimanda.footballvri.util.invisible
+import com.example.vitorizkiimanda.footballvri.util.visible
 import com.example.vitorizkiimanda.footballvri.Adapter.MatchAdapter
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.Model.Match
 
 import com.example.vitorizkiimanda.footballvri.R
-import com.example.vitorizkiimanda.footballvri.R.id.spinner
 import com.example.vitorizkiimanda.footballvri.matches.MatchesPresenter
 import com.example.vitorizkiimanda.footballvri.matches.MatchesView
 import com.google.gson.Gson
