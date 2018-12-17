@@ -3,6 +3,10 @@ package com.example.vitorizkiimanda.footballvri
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.SearchView
+import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
 import com.example.vitorizkiimanda.footballvri.R.id.*
 import com.example.vitorizkiimanda.footballvri.favourites.FavouritesFragment
 import com.example.vitorizkiimanda.footballvri.matches.MatchesFragment
@@ -10,6 +14,7 @@ import com.example.vitorizkiimanda.footballvri.teams.TeamsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private var menuItem: Menu? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

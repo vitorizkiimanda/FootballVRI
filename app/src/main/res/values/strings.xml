@@ -18,6 +18,7 @@
     <string name="favorites">Favourites</string>
     <string name="toast_fav_add">Added to favourite</string>
     <string name="toast_fav_remove">Removed from favourite</string>
+    <string name="search">Search</string>
 
 
     <array name="league">
