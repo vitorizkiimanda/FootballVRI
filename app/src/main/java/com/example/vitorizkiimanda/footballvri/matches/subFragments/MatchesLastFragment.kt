@@ -9,7 +9,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.ProgressBar
+import android.widget.Spinner
 import com.dicoding.kotlinacademy.util.invisible
 import com.dicoding.kotlinacademy.util.visible
 import com.example.vitorizkiimanda.footballvri.Adapter.MatchAdapter
@@ -17,6 +20,7 @@ import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.Model.Match
 
 import com.example.vitorizkiimanda.footballvri.R
+import com.example.vitorizkiimanda.footballvri.R.id.spinner
 import com.example.vitorizkiimanda.footballvri.matches.MatchesPresenter
 import com.example.vitorizkiimanda.footballvri.matches.MatchesView
 import com.google.gson.Gson
@@ -39,6 +43,8 @@ class MatchesLastFragment : Fragment(), MatchesView {
     private lateinit var listMatch: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var spinner: Spinner
+    private lateinit var leagueName: String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -49,6 +55,22 @@ class MatchesLastFragment : Fragment(), MatchesView {
         listMatch = view.findViewById(R.id.rvMatchesLast)
         progressBar = view.findViewById(R.id.progress_bar)
         swipeRefreshLayout = view.findViewById(R.id.swipe_refresh_layout)
+        spinner = view.findViewById(R.id.spinnerLeagues)
+
+        //spinner
+        leagueName = "English Premier League"
+        val spinnerItems = resources.getStringArray(R.array.league)
+        val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_dropdown_item, spinnerItems)
+        spinner.adapter = spinnerAdapter
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                leagueName = spinner.selectedItem.toString()
+                getData(leagueName)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {}
+        }
 
         adapter = MatchAdapter(matches)
         listMatch.adapter = adapter
@@ -58,18 +80,42 @@ class MatchesLastFragment : Fragment(), MatchesView {
 
         //pull to update
         swipeRefreshLayout.onRefresh {
-            getData()
+            getData(leagueName)
         }
-        getData()
+        getData(leagueName)
 
         return view
     }
 
-    fun getData(){
+
+    fun getData(data: String){
+        //id
+        var id = "4328"
+        when (data) {
+            "English Premier League" -> {
+                id = "4328"
+            }
+            "English League Championship" -> {
+                id = "4329"
+            }
+            "German Bundesliga" -> {
+                id = "4331"
+            }
+            "Italian Serie A" -> {
+                id = "4332"
+            }
+            "French Ligue 1" -> {
+                id = "4334"
+            }
+            "Spanish La Liga" -> {
+                id = "4335"
+            }
+        }
+
         val request = ApiRepository()
         val gson = Gson()
         presenter = MatchesPresenter(this, request, gson)
-        presenter.getLastMatches("4328")
+        presenter.getLastMatches(id)
     }
 
 
