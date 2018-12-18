@@ -35,8 +35,10 @@ class TeamsPresenter(private val view: TeamsView,
             )
 
             uiThread {
+                if(data.teams!=null){
+                    view.showTeamList(data.teams)
+                }
                 view.hideLoading()
-                view.showTeamList(data.teams)
             }
         }
     }

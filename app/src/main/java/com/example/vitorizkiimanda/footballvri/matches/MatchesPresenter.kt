@@ -52,7 +52,7 @@ class MatchesPresenter(private val view: MatchesView,
             )
 
             uiThread {
-                if(data.matches.count()>0) {
+                if(data.matches!=null) {
                     view.showMatchList(data.matches)
                 }
                 view.hideLoading()
