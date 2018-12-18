@@ -7,13 +7,13 @@ import java.io.Serializable
 
 data class Player(
         @SerializedName("idPlayer") var idTeam: String?,
-        @SerializedName("strPlayer") var strPlayer: String="",
-        @SerializedName("strCutout") var strCutout: String="noPict",
-        @SerializedName("strThumb") var strThumb: String="",
-        @SerializedName("strWeight") var strWeight: String="",
-        @SerializedName("strHeight") var strHeight: String="",
-        @SerializedName("strPosition") var strPosition: String="",
-        @SerializedName("strDescriptionEN") var strDescriptionEN: String=""
+        @SerializedName("strPlayer") var strPlayer: String?,
+        @SerializedName("strCutout") var strCutout: String?,
+        @SerializedName("strThumb") var strThumb: String?,
+        @SerializedName("strWeight") var strWeight: String?,
+        @SerializedName("strHeight") var strHeight: String?,
+        @SerializedName("strPosition") var strPosition: String?,
+        @SerializedName("strDescriptionEN") var strDescriptionEN: String?
 ): Serializable, Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString(),

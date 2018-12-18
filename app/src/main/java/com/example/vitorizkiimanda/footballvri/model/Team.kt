@@ -7,8 +7,8 @@ import java.io.Serializable
 
 data class Team(
         @SerializedName("idTeam") var idTeam: String?,
-        @SerializedName("strTeam") var strTeam: String,
-        @SerializedName("strTeamBadge") var strTeamBadge: String
+        @SerializedName("strTeam") var strTeam: String?,
+        @SerializedName("strTeamBadge") var strTeamBadge: String?
 
 ) : Serializable, Parcelable {
         constructor(parcel: Parcel) : this(
