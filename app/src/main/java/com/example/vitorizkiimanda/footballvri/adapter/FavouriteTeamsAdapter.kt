@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballvri.Adapter
+package com.example.vitorizkiimanda.footballvri.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -6,34 +6,31 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import com.example.vitorizkiimanda.footballvri.Model.fromExample.Team
 import com.example.vitorizkiimanda.footballvri.R.id.team_badge
 import com.example.vitorizkiimanda.footballvri.R.id.team_name
+import com.example.vitorizkiimanda.footballvri.database.FavouriteTeam
 import com.squareup.picasso.Picasso
 import org.jetbrains.anko.*
 
-/**
- * Created by root on 1/16/18.
- */
-class TeamsAdapter(private val teams: List<Team>, private val listener: (Team) -> Unit)
-    : RecyclerView.Adapter<TeamViewHolder>() {
+class FavoriteTeamsAdapter(private val favorite: List<FavouriteTeam>, private val listener: (FavouriteTeam) -> Unit)
+    : RecyclerView.Adapter<FavoriteViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
-        return TeamViewHolder(TeamUI().createView(AnkoContext.create(parent.context, parent)))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
+        return FavoriteViewHolder(FavTeamUI().createView(AnkoContext.create(parent.context, parent)))
     }
 
-    override fun onBindViewHolder(holder: TeamViewHolder, position: Int) {
-        holder.bindItem(teams[position], listener)
+    override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
+        holder.bindItem(favorite[position], listener)
     }
 
-    override fun getItemCount(): Int = teams.size
+    override fun getItemCount(): Int = favorite.size
 
 }
 
-class TeamUI : AnkoComponent<ViewGroup> {
+class FavTeamUI : AnkoComponent<ViewGroup> {
     override fun createView(ui: AnkoContext<ViewGroup>): View {
         return with(ui) {
-            linearLayout {
+            linearLayout{
                 lparams(width = matchParent, height = wrapContent)
                 padding = dip(16)
                 orientation = LinearLayout.HORIZONTAL
@@ -58,14 +55,14 @@ class TeamUI : AnkoComponent<ViewGroup> {
 
 }
 
-class TeamViewHolder(view: View) : RecyclerView.ViewHolder(view){
+class FavoriteViewHolder(view: View) : RecyclerView.ViewHolder(view){
 
     private val teamBadge: ImageView = view.find(team_badge)
     private val teamName: TextView = view.find(team_name)
 
-    fun bindItem(teams: Team, listener: (Team) -> Unit) {
-        Picasso.get().load(teams.teamBadge).into(teamBadge)
-        teamName.text = teams.teamName
-        itemView.setOnClickListener { listener(teams) }
+    fun bindItem(favorite: FavouriteTeam, listener: (FavouriteTeam) -> Unit) {
+        Picasso.get().load(favorite.teamBadge).into(teamBadge)
+        teamName.text = favorite.teamName
+        itemView.setOnClickListener { listener(favorite) }
     }
 }

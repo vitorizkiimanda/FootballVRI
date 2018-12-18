@@ -1,8 +1,8 @@
 package com.example.vitorizkiimanda.footballvri.matches
 
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
-import com.example.vitorizkiimanda.footballvri.Model.MatchResponse
-import com.example.vitorizkiimanda.footballvri.Model.SearchMatchResponse
+import com.example.vitorizkiimanda.footballvri.model.MatchResponse
+import com.example.vitorizkiimanda.footballvri.model.SearchMatchResponse
 import com.example.vitorizkiimanda.footballvri.api.TheSportDBApi
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync

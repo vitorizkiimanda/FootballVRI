@@ -14,9 +14,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.vitorizkiimanda.footballvri.util.invisible
 import com.example.vitorizkiimanda.footballvri.util.visible
-import com.example.vitorizkiimanda.footballvri.Adapter.PlayersAdapter
-import com.example.vitorizkiimanda.footballvri.Model.Player
-import com.example.vitorizkiimanda.footballvri.Model.fromExample.Team
+import com.example.vitorizkiimanda.footballvri.adapter.PlayersAdapter
+import com.example.vitorizkiimanda.footballvri.model.Player
+import com.example.vitorizkiimanda.footballvri.model.fromExample.Team
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.database.FavouriteTeam

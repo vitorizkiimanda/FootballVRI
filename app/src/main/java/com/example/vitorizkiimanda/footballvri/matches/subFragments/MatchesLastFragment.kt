@@ -15,9 +15,9 @@ import android.widget.ProgressBar
 import android.widget.Spinner
 import com.example.vitorizkiimanda.footballvri.util.invisible
 import com.example.vitorizkiimanda.footballvri.util.visible
-import com.example.vitorizkiimanda.footballvri.Adapter.MatchAdapter
+import com.example.vitorizkiimanda.footballvri.adapter.MatchAdapter
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
-import com.example.vitorizkiimanda.footballvri.Model.Match
+import com.example.vitorizkiimanda.footballvri.model.Match
 
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.matches.MatchesPresenter

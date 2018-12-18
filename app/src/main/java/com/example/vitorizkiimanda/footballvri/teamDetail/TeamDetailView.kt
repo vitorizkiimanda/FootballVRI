@@ -1,7 +1,7 @@
 package com.example.vitorizkiimanda.footballvri.teamDetail
 
-import com.example.vitorizkiimanda.footballvri.Model.Player
-import com.example.vitorizkiimanda.footballvri.Model.fromExample.Team
+import com.example.vitorizkiimanda.footballvri.model.Player
+import com.example.vitorizkiimanda.footballvri.model.fromExample.Team
 
 interface TeamDetailView {
     fun showLoading()

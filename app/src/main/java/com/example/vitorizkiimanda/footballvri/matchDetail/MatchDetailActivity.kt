@@ -14,8 +14,8 @@ import com.example.vitorizkiimanda.footballvri.util.formatDate
 import com.example.vitorizkiimanda.footballvri.util.invisible
 import com.example.vitorizkiimanda.footballvri.util.visible
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
-import com.example.vitorizkiimanda.footballvri.Model.Match
-import com.example.vitorizkiimanda.footballvri.Model.TeamResponse
+import com.example.vitorizkiimanda.footballvri.model.Match
+import com.example.vitorizkiimanda.footballvri.model.TeamResponse
 import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch
 import com.example.vitorizkiimanda.footballvri.database.database
 import com.example.vitorizkiimanda.footballvri.R

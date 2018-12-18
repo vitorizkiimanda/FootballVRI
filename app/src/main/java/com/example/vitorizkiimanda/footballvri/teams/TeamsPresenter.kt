@@ -2,7 +2,7 @@ package com.example.vitorizkiimanda.footballvri.teams
 
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.api.TheSportDBApi
-import com.example.vitorizkiimanda.footballvri.Model.fromExample.TeamResponse
+import com.example.vitorizkiimanda.footballvri.model.fromExample.TeamResponse
 import com.google.gson.Gson
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread

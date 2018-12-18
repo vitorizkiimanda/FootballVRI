@@ -1,11 +1,11 @@
-package com.example.vitorizkiimanda.footballvri.Adapter
+package com.example.vitorizkiimanda.footballvri.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.vitorizkiimanda.footballvri.util.formatDate
-import com.example.vitorizkiimanda.footballvri.Model.Match
+import com.example.vitorizkiimanda.footballvri.model.Match
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.matchDetail.MatchDetailActivity
 import kotlinx.android.synthetic.main.item_match.view.*

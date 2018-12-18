@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballvri.Model
+package com.example.vitorizkiimanda.footballvri.model
 
 import android.os.Parcel
 import android.os.Parcelable

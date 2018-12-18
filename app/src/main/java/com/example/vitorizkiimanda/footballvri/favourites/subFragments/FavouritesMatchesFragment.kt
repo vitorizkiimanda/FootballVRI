@@ -12,8 +12,8 @@ import android.view.ViewGroup
 import android.widget.ProgressBar
 import com.example.vitorizkiimanda.footballvri.util.invisible
 import com.example.vitorizkiimanda.footballvri.util.visible
-import com.example.vitorizkiimanda.footballvri.Adapter.FavouriteMatchesAdapter
-import com.example.vitorizkiimanda.footballvri.Model.Match
+import com.example.vitorizkiimanda.footballvri.adapter.FavouriteMatchesAdapter
+import com.example.vitorizkiimanda.footballvri.model.Match
 import com.example.vitorizkiimanda.footballvri.database.FavouriteMatch
 import com.example.vitorizkiimanda.footballvri.database.database
 

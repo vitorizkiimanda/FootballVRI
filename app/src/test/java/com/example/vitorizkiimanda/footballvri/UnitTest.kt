@@ -1,7 +1,7 @@
 package com.example.vitorizkiimanda.footballvri
 
-import com.example.vitorizkiimanda.footballvri.Model.Team
-import com.example.vitorizkiimanda.footballvri.Model.TeamResponse
+import com.example.vitorizkiimanda.footballvri.model.Team
+import com.example.vitorizkiimanda.footballvri.model.TeamResponse
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.api.TheSportDBApi
 import com.example.vitorizkiimanda.footballvri.matchDetail.MatchDetailPresenter

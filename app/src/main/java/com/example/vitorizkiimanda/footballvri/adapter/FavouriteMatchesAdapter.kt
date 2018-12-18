@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballvri.Adapter
+package com.example.vitorizkiimanda.footballvri.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

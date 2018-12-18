@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.vitorizkiimanda.footballvri.Model.Match
-import com.example.vitorizkiimanda.footballvri.Model.Player
+import com.example.vitorizkiimanda.footballvri.model.Player
 import com.example.vitorizkiimanda.footballvri.R
 import kotlinx.android.synthetic.main.activity_player_detail.*
 
@@ -23,10 +22,13 @@ class PlayerDetailActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         //setData to UI
-        Glide.with(applicationContext)
-                .load(data.strThumb)
-                .apply(RequestOptions().placeholder(R.mipmap.ic_launcher))
-                .into(player_thumb)
+        if(data.strThumb!=null){
+            Glide.with(applicationContext)
+                    .load(data.strThumb)
+                    .apply(RequestOptions().placeholder(R.mipmap.ic_launcher))
+                    .into(player_thumb)
+
+        }
         player_weight.text = data.strWeight
         player_height.text = data.strHeight
         player_posisition.text = data.strPosition

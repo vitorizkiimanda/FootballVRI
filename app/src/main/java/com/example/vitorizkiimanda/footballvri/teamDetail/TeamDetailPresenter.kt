@@ -1,8 +1,7 @@
 package com.example.vitorizkiimanda.footballvri.teamDetail
 
-import android.util.Log
-import com.example.vitorizkiimanda.footballvri.Model.PlayerResponse
-import com.example.vitorizkiimanda.footballvri.Model.fromExample.TeamResponse
+import com.example.vitorizkiimanda.footballvri.model.PlayerResponse
+import com.example.vitorizkiimanda.footballvri.model.fromExample.TeamResponse
 import com.example.vitorizkiimanda.footballvri.api.ApiRepository
 import com.example.vitorizkiimanda.footballvri.api.TheSportDBApi
 import com.google.gson.Gson

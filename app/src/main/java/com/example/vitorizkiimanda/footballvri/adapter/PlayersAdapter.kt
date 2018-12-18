@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballvri.Adapter
+package com.example.vitorizkiimanda.footballvri.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import com.example.vitorizkiimanda.footballvri.Model.Player
+import com.example.vitorizkiimanda.footballvri.model.Player
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.playerDetail.PlayerDetailActivity
 import kotlinx.android.synthetic.main.item_player.view.*

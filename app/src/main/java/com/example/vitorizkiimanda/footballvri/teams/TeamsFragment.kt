@@ -13,7 +13,7 @@ import android.view.*
 import android.widget.*
 import com.example.vitorizkiimanda.footballvri.util.invisible
 import com.example.vitorizkiimanda.footballvri.util.visible
-import com.example.vitorizkiimanda.footballvri.Adapter.TeamsAdapter
+import com.example.vitorizkiimanda.footballvri.adapter.TeamsAdapter
 
 import com.example.vitorizkiimanda.footballvri.R
 import com.example.vitorizkiimanda.footballvri.R.array.league
@@ -35,7 +35,7 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
-    private var teams: MutableList<com.example.vitorizkiimanda.footballvri.Model.fromExample.Team> = mutableListOf()
+    private var teams: MutableList<com.example.vitorizkiimanda.footballvri.model.fromExample.Team> = mutableListOf()
     private lateinit var presenter: TeamsPresenter
     private lateinit var adapter: TeamsAdapter
     private lateinit var spinner: Spinner
@@ -124,7 +124,7 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
         progressBar.invisible()
     }
 
-    override fun showTeamList(data: List<com.example.vitorizkiimanda.footballvri.Model.fromExample.Team>) {
+    override fun showTeamList(data: List<com.example.vitorizkiimanda.footballvri.model.fromExample.Team>) {
         swipeRefresh.isRefreshing = false
         teams.clear()
         teams.addAll(data)

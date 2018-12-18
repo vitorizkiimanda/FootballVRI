@@ -1,4 +1,4 @@
-package com.example.vitorizkiimanda.footballvri.Model.fromExample
+package com.example.vitorizkiimanda.footballvri.model.fromExample
 
 import com.google.gson.annotations.SerializedName
 
