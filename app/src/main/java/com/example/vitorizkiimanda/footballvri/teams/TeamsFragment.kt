@@ -142,6 +142,7 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
 
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         inflater?.inflate(R.menu.search_menu, menu)
+
         val searchView = menu?.findItem(R.id.mnSearch)?.actionView as SearchView?
         searchView?.queryHint = "Search Team"
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -153,20 +154,13 @@ class TeamsFragment : Fragment(), AnkoComponent<Context>, TeamsView {
             }
             override fun onQueryTextChange(query: String?): Boolean = false
         })
-        searchView?.setOnCloseListener(object: SearchView.OnCloseListener{
-            override fun onClose(): Boolean {
-                Log.d("close","clooooose")
-                spinner.visibility = View.VISIBLE
-                presenter.getTeamList(leagueName)
-                return true
-            }
-        })
-//        searchView?.setOnCloseListener {
-//            Log.d("close","clooooose")
-//            spinner.visibility = View.VISIBLE
-//            presenter.getTeamList(leagueName)
-//            true
-//        }
+
+        searchView?.setOnCloseListener {
+            Log.d("close","clooooose")
+            spinner.visibility = View.VISIBLE
+            presenter.getTeamList(leagueName)
+            true
+        }
         super.onCreateOptionsMenu(  menu, inflater)
     }
 

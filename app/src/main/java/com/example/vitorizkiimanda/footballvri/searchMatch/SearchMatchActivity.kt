@@ -85,8 +85,14 @@ class SearchMatchActivity : AppCompatActivity(), MatchesView {
 
     override fun onCreateOptionsMenu(menu: Menu?) : Boolean {
         menuInflater.inflate(R.menu.search_menu, menu)
+
+        val searchItem : MenuItem? = menu?.findItem(R.id.mnSearch)
+        searchItem?.expandActionView()
+
         val searchView = menu?.findItem(R.id.mnSearch)?.actionView as SearchView?
+        searchView?.setQuery(eventName, false)
         searchView?.queryHint = "Search Match"
+//        searchView?.setQuery(eventName)
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 getData(query.toString())
