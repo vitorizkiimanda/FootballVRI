@@ -73,3 +73,19 @@ class UnitTest {
         }
     }
 }
+
+//unit test :
+//
+//1. formatDate =  melakukan cek pada fungsi formator tanggal pertandingan
+//
+//usecase : "2018-12-10"
+//
+//keluaran yang benar : "Mon, 10 Dec 2018"
+
+//2. testGetTeamHome = Mocking MatchDetailPresenter
+//
+//Mengecek apakah presenter dapat bekerja sesuai harapan
+//
+//usecase : nama team ="Everton"
+//
+//mocking parameter yang dibutuhkan , pangggilan API, dan view

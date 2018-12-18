@@ -112,4 +112,31 @@ class InstrumentTest {
         }
     }
 
+//    testing scenario :
+//    - check if RecycleView from next matches  shown
+//    - swipe left on Matches Fragment view pager
+//    - check if RecycleView from last Matches shown
+//    - scrollTo on last match recycle view index 14
+//    - click on last match recycle view index 14
+//    - check if Teams Logo shown
+//    - click on add favourite button
+//    - press back
+//    - click on navigation button team
+//    - check if REcycle View teams shown
+//    - click on recycleview teams index 0
+//    - scroll to layout with id "player_header"
+//    - scroll to recycleView player
+//    - click on recycleView player index 2
+//    - press back
+//    - click on favourite button
+//    - press back
+//    - click on navigation button favourites
+//    - clik on RecycleView favourites match index 0
+//    - click favourite button ( unfavourite )
+//    - press back
+//    - swipe left on view pager favourites
+//    - click on recycle view favourite teams index 0
+//    - click favourite button ( unfavourite )
+//    - press back
+
 }
