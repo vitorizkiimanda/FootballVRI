@@ -67,6 +67,13 @@ class InstrumentTest {
         delay()
         onView(withId(player_header)).perform(scrollTo())
         delay()
+        onView(withId(rvTeamPlayers)).perform(scrollTo())
+        delay()
+        onView(withId(rvTeamPlayers)).perform(
+                RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(2, click()))
+        delay()
+        pressBack()
+        delay()
         onView(withId(add_to_favorite)).perform(click())
         delay()
 
